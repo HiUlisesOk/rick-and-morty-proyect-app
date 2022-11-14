@@ -1,0 +1,27 @@
+.CardsContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  justify-content: space-around;
+}
+
+@media (max-width: 767px) {
+  .CardsContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+  }
+}
+@media (max-width: 667px) {
+  .CardsContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+  }
+}
+@media (max-width: 500px) {
+  .CardsContainer {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: space-around;
+  }
+}

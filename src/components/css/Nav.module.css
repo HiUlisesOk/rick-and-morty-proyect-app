@@ -1,0 +1,107 @@
+.NavBar {
+  background: linear-gradient(to bottom, #1f1f1f 5%, #0a0a0a 100%);
+  height: 9%;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 0px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 999;
+  flex-wrap: nowrap;
+  transition: ease-in 0.3s;
+}
+
+.NavBar div {
+  padding: 10px;
+}
+.NavBar a,
+.username,
+select {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Source Code Pro", monospace;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 400;
+}
+.NavBar a:hover {
+  color: #fdf03a;
+}
+.menuList {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.Logo {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/2560px-Rick_and_Morty.svg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 118px;
+  min-height: 61px;
+  margin: auto;
+  margin-left: 20px;
+  background-position: center;
+}
+
+.logout {
+  width: 100%;
+  padding: 8px 16px;
+  margin: auto;
+  border-radius: 5px;
+  display: block;
+  background-color: rgb(250, 72, 72);
+  color: #fff;
+}
+.username {
+  color: #fdf03a;
+  font-size: 1rem;
+}
+
+.iconMovil {
+  display: none;
+}
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&display=swap");
+@media (max-width: 767px) {
+  .iconMovil {
+    display: block;
+  }
+  .NavBar {
+    background: linear-gradient(to bottom, #1f1f1f 5%, #0a0a0a 100%);
+    width: 100%;
+    height: 20%;
+    overflow: hidden;
+  }
+  .menuList {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  .closedNav {
+    height: 20%;
+  }
+  .openNav {
+    height: 100%;
+  }
+  .hideMe {
+    display: none;
+  }
+  .showMe {
+    display: block;
+  }
+}
