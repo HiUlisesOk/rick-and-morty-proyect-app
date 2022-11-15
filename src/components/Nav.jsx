@@ -46,6 +46,9 @@ const Nav = (props) => {
           <div className={`${display}`}>
             <NavLink to="/About">About</NavLink>
           </div>
+          <div className={`${display}`}>
+            <NavLink to="/Pagination">Pages</NavLink>
+          </div>
           <div className={`${display} ${styles.username}`}>
             <span>{props.username}</span>
           </div>

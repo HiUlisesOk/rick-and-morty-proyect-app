@@ -13,3 +13,11 @@ export const filterCards = (gender) => {
 export const orderCards = (id) => {
   return { type: "ORDER", payload: id };
 };
+
+export const filterAndOrder = (id, gender) => {
+  return { type: "FILTER-AND-ORDER", payload: { id, gender } };
+};
+
+export const getCharacter = (data) => {
+  return { type: "GET-CHARACTER", payload: data };
+};

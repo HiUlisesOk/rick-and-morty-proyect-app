@@ -2,21 +2,41 @@ import React from "react";
 import { connect } from "react-redux";
 import Card from "./Card";
 import style from "./css/Cards.module.css";
-import { orderCards, filterCards } from "../redux/actions";
+import { orderCards, filterCards, filterAndOrder } from "../redux/actions";
 class Favorites extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { filter: false, order: false, filterType: "", orderType: "" };
   }
+
   componentDidMount() {
     this.props.orderCards("Ascendente");
   }
   render() {
     const handleChange = (e) => {
       if (e.target.name === "order") {
-        this.props.orderCards(e.target.value);
+        this.state.order = true;
+        this.state.orderType = e.target.value;
+        if (this.state.filter) {
+          this.props.filterAndOrder(
+            this.state.orderType,
+            this.state.filterType,
+          );
+        } else {
+          this.props.orderCards(e.target.value);
+        }
       }
       if (e.target.name === "filter") {
-        this.props.filterCards(e.target.value);
+        this.state.filter = true;
+        this.state.filterType = e.target.value;
+        if (this.state.order) {
+          this.props.filterAndOrder(
+            this.state.orderType,
+            this.state.filterType,
+          );
+        } else {
+          this.props.filterCards(e.target.value);
+        }
       }
     };
     return (
@@ -60,8 +80,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToprops = (dispatch) => {
   return {
-    filterCards: (e) => dispatch(filterCards(e)),
-    orderCards: (e) => dispatch(orderCards(e)),
+    filterCards: (gender) => dispatch(filterCards(gender)),
+    orderCards: (id) => dispatch(orderCards(id)),
+    filterAndOrder: (id, gender) => dispatch(filterAndOrder(id, gender)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToprops)(Favorites);

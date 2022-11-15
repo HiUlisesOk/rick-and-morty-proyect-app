@@ -1,17 +1,20 @@
 const initialState = {
   myFavorites: [],
   allCharacters: [],
+  paginationCards: [],
 };
 
 const Reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     // AÑADIR PERSONAJE A FAVORITOS
     case "ADD_CHARACTER":
+      //Nos aseguramos que el personaje no se repita
       for (const char of state.allCharacters) {
         if (char.id === payload.id) {
           return state;
         }
       }
+      //Si no se repite, lo agregamos a nuestra lista
       return {
         ...state,
         allCharacters: [...state.allCharacters, payload],
@@ -56,6 +59,43 @@ const Reducer = (state = initialState, { type, payload }) => {
 
       return { ...state, myFavorites: orderById };
 
+    // DOBLE ORDENAMIENTO
+    case "FILTER-AND-ORDER":
+      // FILTRAMOS POR GÉNERO
+      const filterBeforeOrder = state.allCharacters.filter((character) => {
+        return character.gender === payload.gender;
+      });
+
+      // ORDENAMOS POR ID
+      const orderAfterFilter = [
+        ...filterBeforeOrder.sort((a, b) => {
+          console.log(payload.id);
+          if (payload.id === "Ascendente" && a.id < b.id) {
+            return 1;
+          } else if (payload.id === "Ascendente" && a.id > b.id) {
+            return -1;
+          } else if (payload.id === "Descendente" && a.id > b.id) {
+            return 1;
+          } else if (payload.id === "Descendente" && a.id < b.id) {
+            return -1;
+          } else {
+            return 0;
+          }
+        }),
+      ];
+
+      return { ...state, myFavorites: orderAfterFilter };
+
+    case "GET-CHARACTER":
+      // for (const char of state.allCharacters) {
+      //   if (char.id === payload.id) {
+      //     return state;
+      //   }
+      // }
+      return {
+        ...state,
+        paginationCards: [...state.paginationCards, payload],
+      };
     default:
       return state;
   }

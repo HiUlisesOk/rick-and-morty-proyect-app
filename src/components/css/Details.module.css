@@ -32,7 +32,14 @@
 .info {
   color: #fff;
   font-family: "Roboto", Arial, sans-serif;
-  font-size: 1em;
+  font-size: 2em;
   font-style: italic;
   font-weight: 400;
+  text-align: left;
+  background: linear-gradient(to bottom, #1f1f1f 5%, #0a0a0a 100%);
+  z-index: 1;
+  transition: all 0.5s;
+  margin: 0;
+
+  min-height: 50px;
 }
