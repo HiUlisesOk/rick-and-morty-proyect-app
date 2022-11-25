@@ -92,9 +92,10 @@ const Reducer = (state = initialState, { type, payload }) => {
       //     return state;
       //   }
       // }
+      const [addCharacters] = [payload.results];
       return {
         ...state,
-        paginationCards: [...state.paginationCards, payload],
+        paginationCards: addCharacters,
       };
     default:
       return state;

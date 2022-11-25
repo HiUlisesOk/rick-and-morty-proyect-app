@@ -11,8 +11,10 @@ import Detail from "./components/Detail";
 import Form from "./components/Form";
 import Favorites from "./components/Favorites";
 import Pagination from "./components/Pagination";
+import SearchBar from "./components/SearchBar";
 import { useDispatch } from "react-redux";
 import { removeCharacter } from "./redux/actions";
+
 function App() {
   //Definimos el hook useDispatch para eliminar una carta de los fav
   // cuando se elimina desde el home
@@ -95,24 +97,33 @@ function App() {
   return (
     <div className="App">
       {location.pathname === "/" ? null : (
-        <Nav
-          username={username}
-          randomCharacter={randomCharacter}
-          logout={logout}
-          onSearch={onSearch}
-        />
+        <>
+          <Nav
+            username={username}
+            randomCharacter={randomCharacter}
+            logout={logout}
+            onSearch={onSearch}
+          />
+        </>
       )}
+
       <div>
         <Routes>
           <Route
             exact
             path="/home"
             element={
-              <Cards
-                onClose={onClose}
-                id={character.id}
-                characters={character}
-              />
+              <>
+                <div>
+                  <SearchBar onSearch={onSearch} />
+                </div>
+
+                <Cards
+                  onClose={onClose}
+                  id={character.id}
+                  characters={character}
+                />
+              </>
             }
           />
           <Route
