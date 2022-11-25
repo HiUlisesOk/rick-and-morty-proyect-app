@@ -34,9 +34,6 @@ function Card(props) {
   return (
     <div className={style.mycard}>
       <div>
-        <button className={style.CloseBtn} id={props.id} onClick={clickHandler}>
-          Close
-        </button>
         <div className={style.CardImg}>
           <img src={props.image} alt={props.name} />
         </div>
@@ -51,7 +48,15 @@ function Card(props) {
         <Link className={style.detail} to={`/detail/${props.id}`}>
           Detail
         </Link>
+
         <div className={style.isFav}>
+          <button
+            className={style.CloseBtn}
+            id={props.id}
+            onClick={clickHandler}
+          >
+            ❌
+          </button>
           {isFav ? (
             <button onClick={handleFavorite}>❤️</button>
           ) : (

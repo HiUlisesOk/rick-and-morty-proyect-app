@@ -1,3 +1,17 @@
+:root {
+  --background-color: #051214;
+  --color-primario: #fcec03;
+  --color-secundario: #40b5cb;
+  --color-info: #edf8fa;
+  --color-text-button: #051214;
+  --font-title: "Rubik", sans-serif;
+  --font-title-size: 1rem;
+  --font-text-size: 0.64rem;
+  --font-text: "Roboto Mono", monospace;
+  --inactive-color: #91b748;
+  --logo-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/2560px-Rick_and_Morty.svg.png");
+}
+/* linear-gradient(to top, #10353c 5%, #051214 100%); */
 .App {
   text-align: center;
   width: 95%;
@@ -8,10 +22,20 @@
 hr {
   opacity: 0;
 }
-
+p {
+  width: 80%;
+  height: 100%;
+  padding: 8px 16px;
+  margin: auto;
+  margin-top: 100px;
+  border: 0px solid #000;
+  border-radius: 5px;
+  color: var(--color-text-button) !important;
+  background: var(--color-primario);
+}
 .active {
-  color: #fdf03a;
-  border-bottom: 2px solid #fdf03a;
+  color: var(--color-primario) !important;
+  border-bottom: 2px solid var(--color-primario);
   padding: 0 10px;
 }
 @font-face {
@@ -32,7 +56,7 @@ hr {
 [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-size: 2em;
-  color: #fff;
+  color: var(--color-info);
   font-family: "icomoon" !important;
   /* speak: never; */
   font-style: normal;
@@ -78,3 +102,6 @@ hr {
     margin-top: 35%;
   }
 }
+
+@import url(https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,regular,500,600,700,100italic,200italic,300italic,italic,500italic,600italic,700italic);

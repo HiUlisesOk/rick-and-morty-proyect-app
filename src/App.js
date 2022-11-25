@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+
 import "./App.css";
 import Cards from "./components/Cards.jsx";
 import Nav from "./components/Nav";
@@ -9,17 +10,19 @@ import About from "./components/About";
 import Detail from "./components/Detail";
 import Form from "./components/Form";
 import Favorites from "./components/Favorites";
+import Pagination from "./components/Pagination";
+import SearchBar from "./components/SearchBar";
 import { useDispatch } from "react-redux";
 import { removeCharacter } from "./redux/actions";
+
 function App() {
   //Definimos el hook useDispatch para eliminar una carta de los fav
   // cuando se elimina desde el home
   const dispatch = useDispatch();
-
-  //Definimos un array vacio para el estado inicial
-  const [character, setCharacters] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
+  //Definimos un array vacio para el estado inicial
+  const [character, setCharacters] = useState([]);
 
   //Funcion que busca y devuelve personajes de la API
   const onSearch = (id) => {
@@ -59,7 +62,7 @@ function App() {
     onSearch(getRandomIntInclusive(1, 826));
   };
 
-  //Función que elimina Cards al hacer click en la x
+  //Función que elimina Cards al hacer click en la x (close)
   const onClose = (props) => {
     const closeCard = character.filter(
       (mycharacter) => mycharacter.id !== props.id,
@@ -70,6 +73,7 @@ function App() {
 
   //Un estado local llamado "access" que se inicializa en false.
   // Evita que alguien no logueado ingrese a nuestra web
+
   const [access, setAccess] = useState(false);
   const username = "uesquivel95@gmail.com";
   const password = "123456rick";
@@ -93,23 +97,44 @@ function App() {
   return (
     <div className="App">
       {location.pathname === "/" ? null : (
-        <Nav
-          username={username}
-          randomCharacter={randomCharacter}
-          logout={logout}
-          onSearch={onSearch}
-        />
+        <>
+          <Nav
+            username={username}
+            randomCharacter={randomCharacter}
+            logout={logout}
+            onSearch={onSearch}
+          />
+        </>
       )}
+
       <div>
         <Routes>
           <Route
             exact
             path="/home"
             element={
-              <Cards
+              <>
+                <div>
+                  <SearchBar onSearch={onSearch} />
+                </div>
+
+                <Cards
+                  onClose={onClose}
+                  id={character.id}
+                  characters={character}
+                />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/pagination"
+            element={
+              <Pagination
                 onClose={onClose}
                 id={character.id}
                 characters={character}
+                onSearch={onSearch}
               />
             }
           />

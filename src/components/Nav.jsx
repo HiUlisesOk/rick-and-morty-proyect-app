@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBar from "./SearchBar";
+
 import styles from "./css/Nav.module.css";
 
 import { NavLink } from "react-router-dom";
@@ -31,9 +31,6 @@ const Nav = (props) => {
             <span onClick={handleClick} className={`${homeIcon}`}></span>
           </div>
           <div className={`${display}`}>
-            <SearchBar onSearch={props.onSearch} />
-          </div>
-          <div className={`${display}`}>
             <NavLink to="/home">Home</NavLink>
           </div>
           <div className={`${display}`}>
@@ -42,6 +39,9 @@ const Nav = (props) => {
 
           <div className={`${display}`}>
             <Link onClick={props.randomCharacter}>Random</Link>
+          </div>
+          <div className={`${display}`}>
+            <NavLink to="/Pagination">Todos los personajes</NavLink>
           </div>
           <div className={`${display}`}>
             <NavLink to="/About">About</NavLink>

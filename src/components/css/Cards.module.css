@@ -1,9 +1,41 @@
 .CardsContainer {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  justify-content: space-around;
+  grid-template-columns: auto auto auto auto auto auto;
+  justify-content: center;
 }
-
+.PaginationContainer {
+  display: flex;
+  flex-direction: row;
+}
+.PaginationBtn {
+  width: 15%;
+}
+.PaginationNumBtn {
+  width: 5%;
+}
+.PaginationNumBtn {
+  width: 10%;
+  padding: 8px 16px;
+  margin: auto;
+  margin-top: 22px;
+  border: 1px solid var(--background-color);
+  border-radius: 5px;
+  display: block;
+  color: var(--background-color);
+  background: var(--color-primario);
+  font-weight: bold;
+}
+.PaginationBtn {
+  width: 10%;
+  padding: 8px 16px;
+  margin: auto;
+  margin-top: 22px;
+  border: 1px solid var(--background-color);
+  border-radius: 5px;
+  display: block;
+  color: var(--background-color);
+  background: var(--color-primario);
+}
 @media (max-width: 767px) {
   .CardsContainer {
     display: grid;
