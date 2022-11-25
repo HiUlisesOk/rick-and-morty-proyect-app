@@ -11,7 +11,7 @@ export default function SearchBar(props) {
     `Si quieres saber un poco mas sobre este proyecto, puedes hacer click en ABOUT`,
     `Busca el ID de tu personaje aquí`,
   ];
-  let [id, setId] = useState(infoTextArray[0]);
+  let [id, setId] = useState("");
 
   const clickHandler = () => {
     props.onSearch(id);

@@ -1,18 +1,14 @@
 import React from "react";
 import styles from "./css/Info.module.css";
-import { useNavigate } from "react-router-dom";
+
 import yo from "../images/me.jpg";
 const About = (props) => {
-  const Nav = useNavigate();
-  const backToHome = () => {
-    Nav("/home");
-  };
   return (
     <>
       <p>About Me</p>
 
       <div className={styles.infoProyect}>
-        <img className={styles.imgProyect} src={yo} />
+        <img className={styles.imgProyect} alt="Author" src={yo} />
         <div>
           Hola! Mi nombre es <b>Ulises Esquivel</b>, soy alumno de{" "}
           <a href="soyhenry.com">HENRY</a> y actualmente estoy cursando la
