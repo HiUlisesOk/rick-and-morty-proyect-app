@@ -41,11 +41,13 @@ function Card(props) {
       <div className={`${style.Titles} ${style.name}`}>{props.name}</div>
 
       <div className={style.container}>
-        <div className={`${style.Titles} ${style.species}`}>id: {props.id}</div>
-        <div className={`${style.Titles} ${style.species}`}>
+        <div className={`${style.Titles} ${style.species}`}>Id: {props.id}</div>
+        <div className={`${style.Titles}Especie: ${style.species}`}>
           {props.species}
         </div>
-        <div className={`${style.Titles} ${style.gender}`}>{props.gender}</div>
+        <div className={`${style.Titles} ${style.gender}`}>
+          Género: {props.gender}
+        </div>
         <Link className={style.detail} to={`/detail/${props.id}`}>
           Detail
         </Link>
