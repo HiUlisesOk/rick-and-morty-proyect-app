@@ -18,6 +18,7 @@ export default function SearchBar(props) {
   };
   let handleChangeText = (i) => {
     setInfoText(infoTextArray[i]);
+    console.log(infoText);
   };
   //Funcion que devuelve un numero random entre dos numeros
   function getRandomIntInclusive(min, max) {
