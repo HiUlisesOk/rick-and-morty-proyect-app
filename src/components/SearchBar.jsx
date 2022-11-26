@@ -30,7 +30,7 @@ export default function SearchBar(props) {
   useEffect(() => {
     setTimeout(() => {
       handleChangeText(getRandomIntInclusive(0, 4));
-    }, "5000");
+    }, "3800");
   }, [infoText]);
 
   return (
