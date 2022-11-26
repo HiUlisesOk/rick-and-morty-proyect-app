@@ -75,7 +75,7 @@ function App() {
   // Evita que alguien no logueado ingrese a nuestra web
 
   const [access, setAccess] = useState(false);
-  const username = "uesquivel95@gmail.com";
+  const username = "example@gmail.com";
   const password = "123456rick";
 
   //Funcion LOGIN

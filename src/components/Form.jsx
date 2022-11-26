@@ -50,6 +50,9 @@ const Form = (props) => {
           <button type="submit">submit</button>
         </form>
       </div>
+      <p>
+        username = "example@gmail.com" <br /> password = "123456rick"
+      </p>
     </>
   );
 };
