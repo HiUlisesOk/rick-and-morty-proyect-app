@@ -41,7 +41,7 @@ function Card(props) {
       <div className={`${style.Titles} ${style.name}`}>{props.name}</div>
 
       <div className={style.container}>
-        <div className={`${style.Titles} ${style.species}`}>{props.id}</div>
+        <div className={`${style.Titles} ${style.species}`}>id: {props.id}</div>
         <div className={`${style.Titles} ${style.species}`}>
           {props.species}
         </div>
